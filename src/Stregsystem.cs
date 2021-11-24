@@ -22,8 +22,8 @@ namespace Stregsystem
         private FileInfo userFile;
         private FileInfo productFile;
 
-        public Stregsystem(string logPath = "./History.log", string userPath = "./Users.csv",
-                string productPath = "./Products.csv")
+        public Stregsystem(string logPath = "./History.log", string userPath = "./users.csv",
+                string productPath = "./products.csv")
         {
             Transactions = new List<Transaction>();
             try
@@ -73,6 +73,7 @@ namespace Stregsystem
         public User GetUserByUsername(string username) => Users.First(x => x.UserName == username);
         public IEnumerable<Transaction> GetTransactions(User user, int count) =>
             Transactions.Where(x => x.User.Equals(user))
+            .OrderByDescending(x => x.ID)
             .Take(count)
             .ToList();
     }

@@ -1,0 +1,15 @@
+/home/lohse/Documents/Projects/oop_exam/bin/Debug/net6.0/oop_exam
+/home/lohse/Documents/Projects/oop_exam/bin/Debug/net6.0/oop_exam.deps.json
+/home/lohse/Documents/Projects/oop_exam/bin/Debug/net6.0/oop_exam.runtimeconfig.json
+/home/lohse/Documents/Projects/oop_exam/bin/Debug/net6.0/oop_exam.dll
+/home/lohse/Documents/Projects/oop_exam/bin/Debug/net6.0/ref/oop_exam.dll
+/home/lohse/Documents/Projects/oop_exam/bin/Debug/net6.0/oop_exam.pdb
+/home/lohse/Documents/Projects/oop_exam/obj/Debug/net6.0/oop_exam.csproj.AssemblyReference.cache
+/home/lohse/Documents/Projects/oop_exam/obj/Debug/net6.0/oop_exam.GeneratedMSBuildEditorConfig.editorconfig
+/home/lohse/Documents/Projects/oop_exam/obj/Debug/net6.0/oop_exam.AssemblyInfoInputs.cache
+/home/lohse/Documents/Projects/oop_exam/obj/Debug/net6.0/oop_exam.AssemblyInfo.cs
+/home/lohse/Documents/Projects/oop_exam/obj/Debug/net6.0/oop_exam.csproj.CoreCompileInputs.cache
+/home/lohse/Documents/Projects/oop_exam/obj/Debug/net6.0/oop_exam.dll
+/home/lohse/Documents/Projects/oop_exam/obj/Debug/net6.0/ref/oop_exam.dll
+/home/lohse/Documents/Projects/oop_exam/obj/Debug/net6.0/oop_exam.pdb
+/home/lohse/Documents/Projects/oop_exam/obj/Debug/net6.0/oop_exam.genruntimeconfig.cache

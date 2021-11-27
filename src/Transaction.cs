@@ -7,6 +7,7 @@ using System.Diagnostics;
 
 namespace Stregsystem
 {
+    ///<summary>Class specifying whenever a transaction occurs.</summary>
     abstract class Transaction
     {
         public int ID { get; }
@@ -15,6 +16,7 @@ namespace Stregsystem
         public DateTime Date { get; }
         public float Amount { get; }
 
+        ///<summary>Class specifying whenever a transaction occurs.</summary>
         public Transaction(User user, DateTime date, float amount)
         {
             ID = id;
@@ -25,10 +27,8 @@ namespace Stregsystem
             ID = id++;
         }
 
-        //TODO: Error-handle and log
         public abstract void Execute();
 
-        //TODO: reformulate string
-        public override string ToString() => $"Transaction {ID}: {User.FirstName} spent {Amount.ToString()} on {Date.ToString()}";
+        public abstract string ToString();
     }
 }

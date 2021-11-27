@@ -7,6 +7,7 @@ using System.Diagnostics;
 
 namespace Stregsystem
 {
+    ///<summary>Interface specifying the methods needed for the Stregsystem to work.</summary>
     interface IStregsystem 
     { 
        List<Product> ActiveProducts { get; } 
@@ -16,8 +17,5 @@ namespace Stregsystem
        IEnumerable<Transaction> GetTransactions(User user, int count); 
        IEnumerable<User> GetUsers(Func<User, bool> predicate); 
        User GetUserByUsername(string username); 
-       event UserBalanceNotification UserBalanceWarning; 
     }
-    
-    delegate void UserBalanceNotification(User u, decimal balance);
 }

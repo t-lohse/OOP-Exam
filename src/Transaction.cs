@@ -1,9 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Diagnostics;
 
 namespace Stregsystem
 {
@@ -29,6 +24,8 @@ namespace Stregsystem
 
         public abstract void Execute();
 
+#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
         public abstract string ToString();
+#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
     }
 }

@@ -1,9 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Diagnostics;
 
 namespace Stregsystem
 {
@@ -17,11 +12,9 @@ namespace Stregsystem
 
         ///<summary>Constructor, taking the products id, name, price, and stutus' as arguments.
         ///Beyond the standard arguments, it takes the timespan the product is available in.</summary>
-        public SeasonalProduct(uint id, string name, uint price, bool active, bool credit,
-                               DateTime startDate, DateTime endDate)
-            : base(id, name, price, active, credit)
+        public SeasonalProduct(uint id, string name, float price, bool active, DateTime endDate)
+            : base(id, name, price, active)
         {
-            SeasonStartDate = startDate;
             SeasonEndDate = endDate;
         }
     }

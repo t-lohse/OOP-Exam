@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "/home/lohse/Documents/Projects/oop_exam/oop_exam.csproj": {}
+    "D:\\School\\OOP-Exam\\oop_exam.csproj": {}
   },
   "projects": {
-    "/home/lohse/Documents/Projects/oop_exam/oop_exam.csproj": {
+    "D:\\School\\OOP-Exam\\oop_exam.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/lohse/Documents/Projects/oop_exam/oop_exam.csproj",
+        "projectUniqueName": "D:\\School\\OOP-Exam\\oop_exam.csproj",
         "projectName": "oop_exam",
-        "projectPath": "/home/lohse/Documents/Projects/oop_exam/oop_exam.csproj",
-        "packagesPath": "/home/lohse/.nuget/packages/",
-        "outputPath": "/home/lohse/Documents/Projects/oop_exam/obj/",
+        "projectPath": "D:\\School\\OOP-Exam\\oop_exam.csproj",
+        "packagesPath": "C:\\Users\\thoma\\.nuget\\packages\\",
+        "outputPath": "D:\\School\\OOP-Exam\\obj\\",
         "projectStyle": "PackageReference",
+        "crossTargeting": true,
         "configFilePaths": [
-          "/home/lohse/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\thoma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -47,18 +50,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.0, 6.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

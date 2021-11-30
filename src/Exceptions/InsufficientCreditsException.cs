@@ -1,9 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Diagnostics;
 
 namespace Stregsystem
 {
@@ -18,7 +13,7 @@ namespace Stregsystem
         ///<summary>Exception thrown when trying to pay for a product with an insufficient amount of
         ///credit.</summary>
         public InsufficientCreditsException(User user, Product product)
-            : base("Not enough credits.") //TODO: Rephrase
+            : base("Not enough credits.")
         {
             User = user;
             Product = product;

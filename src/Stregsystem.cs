@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Diagnostics;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace Stregsystem
 {
@@ -18,9 +18,11 @@ namespace Stregsystem
             get => Products.Where(x => x.Active).ToList();
         }
 
-        private FileInfo logFile;
-        private FileInfo userFile;
-        private FileInfo productFile;
+        private string logPath;
+        private string userPath;
+        private string productPath;
+
+        private const float warn = 50;
 
 
         ///<param name="logPath">Path for the file containing transaction-logs.</param>
@@ -29,19 +31,72 @@ namespace Stregsystem
         ///<param name="productPath">Path for the file containing all <c>Product</c>s registered
         ///in the Stregsystem.</param>
         ///<summary>The constructor reads, and pulls from the given file-paths.</summary>
-        public Stregsystem(string logPath = "./History.log", string userPath = "./users.csv",
-                string productPath = "./products.csv") // TODO: Files, and pull data from them
+        public Stregsystem(string logPath = "./history.log", string userPath = "./users.csv",
+                string productPath = "./products.csv")
         {
             Transactions = new List<Transaction>();
-            try
+            Products = new List<Product>();
+            Users = new List<User>();
+
+            this.logPath = logPath;
+            this.userPath = userPath;
+            this.productPath = productPath;
+            ReadData();
+        }
+
+        ///<summary>Reads data from files (<c>userPath</c> and <c>productPath</c>).</summary>
+        private void ReadData()
+        {
+            if (!File.Exists(userPath))
             {
-                logFile = new FileInfo(logPath);
+                File.Create(userPath);
+                goto _Products;
             }
-            catch
+            List<string> _users = File.ReadAllLines(userPath).ToList();
+            List<string> formatingUser = _users[0].Split(',').ToList();
+            _users.RemoveAt(0);
+            foreach (string[] s in _users.Select(x => x.Split(',')))
             {
-                using (File.Create(logPath))
-                logFile = new FileInfo(logPath);
-                Debug.WriteLine("Created File");
+                Users.Add(new User(
+                    name: $"{s[formatingUser.IndexOf("firstname")]} {s[formatingUser.IndexOf("lastname")]}",
+                    username: s[formatingUser.IndexOf("username")],
+                    email: s[formatingUser.IndexOf("email")],
+                    id: uint.Parse(s[formatingUser.IndexOf("id")]),
+                    initBalance: int.Parse(s[formatingUser.IndexOf("balance")])
+                ));
+            }
+
+        _Products:
+            if (!File.Exists(productPath))
+            {
+                File.Create(productPath);
+                return;
+            }
+            List<string> _products = File.ReadAllLines(productPath).ToList();
+            List<string> formatingProducts = _products[0].Split(';').ToList();
+            _products.RemoveAt(0);
+            foreach (string[] str in _products.Select(x => x.Split(';')))
+            {
+                string[] s = str.Select(x => x.Trim('"'))
+                    .Select(x => Regex.Replace(x, "<(.*?)>", string.Empty))
+                    .ToArray();
+
+                if (String.IsNullOrWhiteSpace(s[formatingProducts.IndexOf("deactivate_date")]))
+                    Products.Add(new Product(
+                        name: s[formatingProducts.IndexOf("name")],
+                        price: float.Parse(s[formatingProducts.IndexOf("price")]),
+                        active: s[formatingProducts.IndexOf("active")] == "1" ? true : false,
+                        id: uint.Parse(s[formatingProducts.IndexOf("id")])
+                    ));
+                else
+                    Products.Add(new SeasonalProduct(
+                        name: s[formatingProducts.IndexOf("name")],
+                        price: float.Parse(s[formatingProducts.IndexOf("price")]),
+                        active: s[formatingProducts.IndexOf("active")] == "1" ? true : false,
+                        id: uint.Parse(s[formatingProducts.IndexOf("id")]),
+                        endDate: DateTime.ParseExact(s[formatingProducts.IndexOf("deactivate_date")],
+                        "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
+                ));
             }
         }
 
@@ -69,18 +124,20 @@ namespace Stregsystem
         {
             Transactions.Add(transaction);
             transaction.Execute();
-            
-            using (StreamWriter file = logFile.AppendText()) {
+
+            using (StreamWriter file = File.AppendText(logPath))
+            {
                 file.WriteLine(transaction.ToString());
                 file.Flush();
             }
-            
         }
-        
+
         ///<param name="user">The <c>User</c> whos balance is being checked.</param>
         ///<summary>Method for notifying the user when their balance is low.</summary>
-        private void OnBalanceDecrement(User user) {
-            if (user.Balance < 50) { //TODO: Not const in-line, make const var
+        private void OnBalanceDecrement(User user)
+        {
+            if (user.Balance < warn)
+            {
                 // TODO: Notify
             }
         }
@@ -88,13 +145,13 @@ namespace Stregsystem
         ///<param name="id">The product being searched fors id.</param>
         ///<returns>The <c>Procudt</c> being search for. If not found, it throws an exception.</returns>
         ///<summary>Method for notifying the user when their balance is low.</summary>
-        public Product GetProductByID(uint id) {
+        public Product GetProductByID(uint id)
+        {
             var temp = Products.FirstOrDefault(x => x.ID == id);
             if (temp == null)
                 throw new NonExistingProductException(id);
             return temp;
         }
-
 
         ///<param name="predicate">A <c>Func</c>-delegate, for determining what <c>User</c>s to
         ///return.</param>
@@ -102,13 +159,10 @@ namespace Stregsystem
         ///<summary>Method for getting users, upholding a specified parameter.</summary>
         public List<User> GetUsers(Func<User, bool> predicate) => Users.Where(x => predicate(x)).ToList();
 
-
-        //TODO: Prob better error-handle
         ///<param name="username">The username to search for</param>
         ///<returns>The <c>User</c> whos username matches <c>username</c>.</returns>
         ///<summary>Method for getting a <c>User<c/> by a username.</summary>
-        public User GetUserByUsername(string username) => Users.First(x => x.UserName == username);
-
+        public User GetUserByUsername(string username) => Users.FirstOrDefault(x => x.UserName == username);
 
         ///<param name="user">The <c>User<c>, whos history is being serached.</param>
         ///<param name="count">The count of transaction to get (Latest first).</param>

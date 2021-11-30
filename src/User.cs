@@ -1,9 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Diagnostics;
 
 namespace Stregsystem
 {
@@ -27,7 +23,7 @@ namespace Stregsystem
 
             string[] temp = name.Split(' ');
             if (temp.Length < 2)
-                throw new Exception(); //TODO: Custom exception
+                throw new InvalidNameException();
             LastName = temp[temp.Length - 1];
             Array.Resize(ref temp, temp.Length - 1);
             FirstName = String.Join(' ', temp);
@@ -35,7 +31,7 @@ namespace Stregsystem
             UserName = ValidateUserName(username);
             Balance = initBalance;
             
-            ID = _id++; //TODO: Make ID the top from reading
+            ID = id > _id ? _id = (uint)++id : _id++;
         }
 
         ///<param name="email">Email to validate.</param>
@@ -63,9 +59,9 @@ namespace Stregsystem
                 if (!err)
                     throw new Exception();
             }
-            catch // TODO: Custom throw exception 
+            catch
             {
-                throw new Exception("Invalid email");
+                throw new InvalidEmailException();
             }
 
             return email;
@@ -77,14 +73,14 @@ namespace Stregsystem
         private string ValidateUserName(string username) {
             if (!username.ToCharArray().ToList()
                     .All(c => Char.IsLetterOrDigit(c) || c == '_'))
-                throw new Exception(); //TODO: Custom Exception
+                throw new InvalidUsernameException();
             return username.ToLower();
         }
 
         public int CompareTo(object? obj) {
             if (obj == null)
                 return 1;
-            User other = obj as User;
+            User? other = obj as User;
             return (int)(ID - other.ID);
         }
         public override string ToString() => $"{FirstName} {LastName} ({Email})";

@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "i+ZLxFOe1UIkOwW8x8/0oU3Kh1RrgdnE4iv/qxoaZzHWEp780P8Z9F9q0PyrvAwuxm8GcwQt3qtUlYrTA5lTtw==",
+  "dgSpecHash": "EqiGvTTYbIZiKBmUnK8ssLmzQMoIxKUbH1I8hs0nN4KqmKR9C7oZouU44Upb0pGEpLRGf2u+gPS5dOzO3y3CwQ==",
   "success": true,
-  "projectFilePath": "/home/lohse/Documents/Projects/oop_exam/oop_exam.csproj",
-  "expectedPackageFiles": [
-    "/home/lohse/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.0/microsoft.aspnetcore.app.ref.6.0.0.nupkg.sha512"
-  ],
+  "projectFilePath": "D:\\School\\OOP-Exam\\oop_exam.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

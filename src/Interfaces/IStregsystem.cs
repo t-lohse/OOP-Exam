@@ -1,9 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Diagnostics;
 
 namespace Stregsystem
 {
@@ -14,8 +10,8 @@ namespace Stregsystem
        void AddCreditsToAccount(User user, float amount); 
        void BuyProduct(User user, Product product); 
        Product GetProductByID(uint id); 
-       IEnumerable<Transaction> GetTransactions(User user, int count); 
-       IEnumerable<User> GetUsers(Func<User, bool> predicate); 
+       List<Transaction> GetTransactions(User user, int count); 
+       List<User> GetUsers(Func<User, bool> predicate); 
        User GetUserByUsername(string username); 
     }
 }

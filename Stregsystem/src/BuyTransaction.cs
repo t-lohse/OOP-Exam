@@ -3,7 +3,7 @@ using System;
 namespace Stregsystem
 {
     ///<summary>A specification of <c>Transaction<c>, specifying a "purchase" transaction.</summary>
-    class BuyTransaction : Transaction
+    public class BuyTransaction : Transaction
     {
         public Product Product { get; }
         ///<param name="user">The <c>User</c> depositing the money to their "account".</param>

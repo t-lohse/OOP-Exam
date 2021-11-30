@@ -1,7 +1,7 @@
 namespace Stregsystem
 {
     ///<summary>A product that either has been, or is in the Stregsystems catalog.</summary>
-    class Product
+    public class Product
     {
         public uint ID { get; }
         public string Name { get; set; }

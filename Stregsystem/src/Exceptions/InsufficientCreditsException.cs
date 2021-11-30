@@ -4,7 +4,7 @@ namespace Stregsystem
 {
     ///<summary>Exception thrown when trying to pay for a product with an insufficient amount of
     ///credit.</summary>
-    class InsufficientCreditsException : Exception
+    public class InsufficientCreditsException : Exception
     {
         public User User { get; }
         public Product Product { get; }

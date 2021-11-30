@@ -3,7 +3,7 @@ using System;
 namespace Stregsystem
 {
     ///<summary>Class specifying whenever a transaction occurs.</summary>
-    abstract class Transaction
+    public abstract class Transaction
     {
         public int ID { get; }
         private static int id = 1;

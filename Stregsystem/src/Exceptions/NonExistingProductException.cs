@@ -3,7 +3,7 @@ using System;
 namespace Stregsystem
 {
     ///<summary>Exception thrown when searching for a product that does not exist.</summary>
-    class NonExistingProductException : Exception
+    public class NonExistingProductException : Exception
     {
         public uint Id { get; }
         ///<param name="id">The product-id searched for.</param>

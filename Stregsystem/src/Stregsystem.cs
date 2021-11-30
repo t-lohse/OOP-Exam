@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 namespace Stregsystem
 {
     ///<summary>The Stregsystem class, which implements the IStregsystem interface.</summary>
-    class Stregsystem : IStregsystem
+    public class Stregsystem : IStregsystem
     {
         public List<Product> Products { get; }
         public List<Transaction> Transactions { get; }

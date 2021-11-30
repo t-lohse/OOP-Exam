@@ -5,7 +5,7 @@ namespace Stregsystem
     ///<summary>A derivitive of <c>Product</c>, specifying seasonal products
     ///(products that are only avaliable in a given span of time).
     ///</summary>
-    class SeasonalProduct : Product
+    public class SeasonalProduct : Product
     {
         DateTime SeasonStartDate { get; }
         DateTime SeasonEndDate { get; }

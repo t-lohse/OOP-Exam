@@ -1,0 +1,15 @@
+D:\School\OOP-Exam\Stregsystem\bin\Debug\net6.0\Stregsystem.exe
+D:\School\OOP-Exam\Stregsystem\bin\Debug\net6.0\Stregsystem.deps.json
+D:\School\OOP-Exam\Stregsystem\bin\Debug\net6.0\Stregsystem.runtimeconfig.json
+D:\School\OOP-Exam\Stregsystem\bin\Debug\net6.0\Stregsystem.dll
+D:\School\OOP-Exam\Stregsystem\bin\Debug\net6.0\ref\Stregsystem.dll
+D:\School\OOP-Exam\Stregsystem\bin\Debug\net6.0\Stregsystem.pdb
+D:\School\OOP-Exam\Stregsystem\obj\Debug\net6.0\Stregsystem.csproj.AssemblyReference.cache
+D:\School\OOP-Exam\Stregsystem\obj\Debug\net6.0\Stregsystem.GeneratedMSBuildEditorConfig.editorconfig
+D:\School\OOP-Exam\Stregsystem\obj\Debug\net6.0\Stregsystem.AssemblyInfoInputs.cache
+D:\School\OOP-Exam\Stregsystem\obj\Debug\net6.0\Stregsystem.AssemblyInfo.cs
+D:\School\OOP-Exam\Stregsystem\obj\Debug\net6.0\Stregsystem.csproj.CoreCompileInputs.cache
+D:\School\OOP-Exam\Stregsystem\obj\Debug\net6.0\Stregsystem.dll
+D:\School\OOP-Exam\Stregsystem\obj\Debug\net6.0\ref\Stregsystem.dll
+D:\School\OOP-Exam\Stregsystem\obj\Debug\net6.0\Stregsystem.pdb
+D:\School\OOP-Exam\Stregsystem\obj\Debug\net6.0\Stregsystem.genruntimeconfig.cache

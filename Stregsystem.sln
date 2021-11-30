@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stregsystem", "Stregsystem\Stregsystem.csproj", "{5443A2B3-8179-4710-A4CE-7ADCF5EFE563}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stregsystem.Tests", "Stregsystem.Tests\Stregsystem.Tests.csproj", "{95A220C8-03B2-45D6-BF6D-B100977D4F49}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5443A2B3-8179-4710-A4CE-7ADCF5EFE563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5443A2B3-8179-4710-A4CE-7ADCF5EFE563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5443A2B3-8179-4710-A4CE-7ADCF5EFE563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5443A2B3-8179-4710-A4CE-7ADCF5EFE563}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95A220C8-03B2-45D6-BF6D-B100977D4F49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95A220C8-03B2-45D6-BF6D-B100977D4F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95A220C8-03B2-45D6-BF6D-B100977D4F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95A220C8-03B2-45D6-BF6D-B100977D4F49}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

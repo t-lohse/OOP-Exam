@@ -1,0 +1,11 @@
+id;name;price;active;deactivate_date
+1;Diverse;100;0;
+2;"½L Letmælk";450;0;
+3;"¼L Letmælk";250;0;
+4;"¼L Skummetmælk";225;0;
+5;"¼L Kærnemælk";225;0;
+6;"½L vand & kildevand excl. pant";1200;1;
+7;"Øl(f.eks. Thy, Guld, 47, T-FF)";1000;1;
+8;Øl(Tuborg/Classic/Carlsberg/Rød);650;1;
+9;"Øl(Staropramen, Corona, Budweis)";1500;1;
+10;Cocio;1600;1;2021-12-05 15:27:54

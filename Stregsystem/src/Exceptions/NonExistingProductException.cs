@@ -1,6 +1,6 @@
 using System;
 
-namespace Stregsystem
+namespace Stregsystem.Exceptions
 {
     ///<summary>Exception thrown when searching for a product that does not exist.</summary>
     public class NonExistingProductException : Exception

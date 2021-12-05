@@ -1,6 +1,6 @@
 using System;
 
-namespace Stregsystem
+namespace Stregsystem.Exceptions
 {
     ///<summary>Exception thrown when trying to pay for a product with an insufficient amount of
     ///credit.</summary>
@@ -8,7 +8,7 @@ namespace Stregsystem
     {
         public User User { get; }
         public Product Product { get; }
-        ///<param name="user">The <c>User</c> attempting the pruchase.</param>
+        ///<param name="user">The <c>User</c> attempting the purchase.</param>
         ///<param name="product">The <c>Product</c> the specified user is trying to purchase.</param>
         ///<summary>Exception thrown when trying to pay for a product with an insufficient amount of
         ///credit.</summary>

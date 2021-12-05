@@ -1,19 +1,26 @@
 using System;
 using System.Linq;
+using Stregsystem.Exceptions;
+
 
 namespace Stregsystem
 {
     ///<summary>Class specifying a registered user in the Stregsystem.</summary>
     public class User : IComparable
     {
-        public uint ID { get; }
+        public uint Id { get; }
         private static uint _id = 1;
         public string FirstName { get; }
         public string LastName { get; }
-        public string UserName { get; }
+        public string Username { get; }
         public string Email { get; } 
         public float Balance { get; set; }
 
+        ///<param name="name">The full name of the user.</param>
+        ///<param name="username">The username of the user.</param>
+        ///<param name="email">The email of the user.</param>
+        ///<param name="id">The id of the user. If not specified (null), it will be iterated from the highest existing ids.</param>
+        ///<param name="initBalance">The initial balance of a user (If specified).</param>
         ///<summary>Constructor for <c>User</c>. In here there occurs validation on the username,
         ///email, and full name. If pulling from a "database", the id should be inputted,
         ///if not, set it as null.</summary>
@@ -28,10 +35,11 @@ namespace Stregsystem
             Array.Resize(ref temp, temp.Length - 1);
             FirstName = String.Join(' ', temp);
 
-            UserName = ValidateUserName(username);
+            Username = ValidateUserName(username.ToLower());
             Balance = initBalance;
             
-            ID = id > _id ? _id = (uint)++id : _id++;
+            Id = id.Equals(null) ? _id++ : id.Value;
+            _id = id > _id ? id.Value + 1 : _id;
         }
 
         ///<param name="email">Email to validate.</param>
@@ -74,17 +82,17 @@ namespace Stregsystem
             if (!username.ToCharArray().ToList()
                     .All(c => Char.IsLetterOrDigit(c) || c == '_'))
                 throw new InvalidUsernameException();
-            return username.ToLower();
+            return username;
         }
 
         public int CompareTo(object? obj) {
             if (obj == null)
                 return 1;
             User? other = obj as User;
-            return (int)(ID - other.ID);
+            return (int)(Id - other.Id);
         }
         public override string ToString() => $"{FirstName} {LastName} ({Email})";
-        public bool Equals(User other) => ID == other.ID;
-        public override int GetHashCode() => (int)ID;
+        public bool Equals(User other) => Id == other.Id;
+        public override int GetHashCode() => (int)Id;
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Stregsystem
+namespace Stregsystem.Exceptions
 {
     ///<summary>Exception thrown when invalid username has been inputted.</summary>
     public class InvalidUsernameException : Exception

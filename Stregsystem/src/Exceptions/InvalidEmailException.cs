@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Stregsystem
+namespace Stregsystem.Exceptions
 {
     ///<summary>Exception thrown when invalid email has been inputted.</summary>
     public class InvalidEmailException : Exception

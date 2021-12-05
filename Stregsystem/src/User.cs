@@ -81,7 +81,7 @@ namespace Stregsystem
         private string ValidateUserName(string username) {
             if (!username.ToCharArray().ToList()
                     .All(c => Char.IsLetterOrDigit(c) || c == '_'))
-                throw new InvalidUsernameException();
+                throw new InvalidUsernameException(username);
             return username;
         }
 

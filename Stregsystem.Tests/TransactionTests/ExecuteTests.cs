@@ -27,7 +27,7 @@ namespace Stregsystem.Tests.TransactionTests
             }
             catch (InsufficientCreditsException e)
             {
-                Assert.Equal(prod, e.Product);
+                Assert.Equal(prod, e.Cart[0]);
                 Assert.Equal(user, e.User);
             }
         }

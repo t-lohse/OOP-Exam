@@ -145,10 +145,12 @@ namespace Stregsystem
         ///<param name="user">The <c>User</c> (attempting) to make a purchase.</param>
         ///<param name="product">The <c>Product</c> the user is (attempting) to purchase.</param>
         ///<summary>Method for creating the <c>Transaction</c> for buying a <c>Product</c>.</summary>
-        public void BuyProduct(User user, Product product)
+        public BuyTransaction BuyProduct(User user, Product product)
         {
-            ExecuteTransaction(new BuyTransaction(user, DateTime.Now, product));
+            BuyTransaction _out = new BuyTransaction(user, DateTime.Now, product);
+            ExecuteTransaction(_out);
             OnBalanceDecrement(user);
+            return _out;
         }
 
         ///<param name="user">The <c>User</c> whose account is being deposited to.</param>
@@ -204,7 +206,17 @@ namespace Stregsystem
         ///<param name="username">The username to search for</param>
         ///<returns>The <c>User</c> whose username matches <c>username</c>.</returns>
         ///<summary>Method for getting a <c>User</c> by a username.</summary>
-        public User GetUserByUsername(string username) => Users.FirstOrDefault(x => x.Username == username);
+        public User GetUserByUsername(string username)
+        {
+            try
+            {
+                return Users.First(x => x.Username == username);
+            }
+            catch
+            {
+                throw new InvalidUsernameException(username);
+            }
+        }
 
         ///<param name="user">The <c>User</c>, whose history is being searched.</param>
         ///<param name="count">The count of transaction to get (Latest first).</param>

@@ -1,5 +1,6 @@
 ﻿using Xunit;
 using System.Collections.Generic;
+using Stregsystem.Exceptions;
 
 namespace Stregsystem.Tests.StregsystemTests
 {
@@ -9,7 +10,7 @@ namespace Stregsystem.Tests.StregsystemTests
         public void SearchNonExistingUser()
         {
             var sts = new Stregsystem(productPath: "products_test.csv");
-            Assert.Null(sts.GetUserByUsername("non-existing"));
+            Assert.Throws<InvalidUsernameException>(() => sts.GetUserByUsername("non-existing"));
         }
         
         [Fact]

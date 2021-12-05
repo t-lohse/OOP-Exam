@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Stregsystem.Interfaces
 {
     ///<summary>Interface specifying the methods needed for the Stregsystem to work.</summary>
-    interface IStregsystem 
+    public interface IStregsystem 
     {
        List<Product> ActiveProducts { get; } 
        
@@ -16,7 +16,7 @@ namespace Stregsystem.Interfaces
        ///<param name="user">The <c>User</c> (attempting) to make a purchase.</param>
        ///<param name="product">The <c>Product</c> the user is (attempting) to purchase.</param>
        ///<summary>Method for buying a <c>product</c> by <c>user</c>.</summary>
-       void BuyProduct(User user, Product product); 
+       BuyTransaction BuyProduct(User user, Product product); 
        
        ///<param name="id">The product being searched for's id.</param>
        ///<returns>The <c>Product</c> being search for. If not found, it throws an exception.</returns>

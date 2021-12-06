@@ -28,7 +28,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="ReSpellerSettingsId" />
   </component>
-  <component name="RunManager" selected=".NET Project.Stregsystem">
+  <component name="RunManager">
     <configuration name="Stregsystem" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Stregsystem/bin/Debug/net6.0/Stregsystem.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -47,9 +47,6 @@
         <option name="Build" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue=".NET Project.Stregsystem" />
-    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="UnitTestsCoverage.Settings">
@@ -60,7 +57,7 @@
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 69% 178/570" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 69% 179/571" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />

@@ -1,6 +1,6 @@
 ﻿namespace Stregsystem.Interfaces
 {
-    public interface IStregsystemUI
+    public interface IStregsystemUi
     {
         void DisplayUserNotFound(string username); 
         void DisplayProductNotFound(string product); 
@@ -16,5 +16,5 @@
         event StregsystemEvent CommandEntered;
     }
 
-    public delegate void StregsystemEvent(string input);
+    public delegate void StregsystemEvent(string? input);
 }

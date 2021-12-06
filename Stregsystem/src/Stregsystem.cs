@@ -18,9 +18,9 @@ namespace Stregsystem
         public List<User> Users { get; }
         public List<Product> ActiveProducts => Products.Where(x => x.Active).ToList();
 
-        private string logPath;
-        private string userPath;
-        private string productPath;
+        private readonly string _logPath;
+        private readonly string _userPath;
+        private readonly string _productPath;
 
         // TODO: Fix to make user-specified
         private const float Warn = 50;
@@ -39,9 +39,9 @@ namespace Stregsystem
             Products = new List<Product>();
             Users = new List<User>();
 
-            this.logPath = logPath;
-            this.userPath = userPath;
-            this.productPath = productPath;
+            this._logPath = logPath;
+            this._userPath = userPath;
+            this._productPath = productPath;
 
             ReadData();
         }
@@ -49,14 +49,14 @@ namespace Stregsystem
         ///<summary>Reads data from files (<c>userPath</c> and <c>productPath</c>).</summary>
         private void ReadData()
         {
-            if (!File.Exists(userPath))
+            if (!File.Exists(_userPath))
             {
-                StreamWriter fs = File.CreateText(userPath);
+                StreamWriter fs = File.CreateText(_userPath);
                 fs.WriteLine("id;date;username;amount;product_id");
                 fs.Flush();
                 goto _Products;
             }
-            List<string> users = File.ReadAllLines(userPath).ToList();
+            List<string> users = File.ReadAllLines(_userPath).ToList();
             List<string> formattingUser = users[0].Split(',').ToList();
             users.RemoveAt(0);
             foreach (string[] s in users.Select(x => x.Split(',')))
@@ -71,14 +71,14 @@ namespace Stregsystem
             }
 
             _Products:
-            if (!File.Exists(productPath))
+            if (!File.Exists(_productPath))
             {
-                StreamWriter fs = File.CreateText(productPath);
+                StreamWriter fs = File.CreateText(_productPath);
                 fs.WriteLine("id;date;username;amount;product_id");
                 fs.Flush();
                 goto _History;
             }
-            List<string> products = File.ReadAllLines(productPath).ToList();
+            List<string> products = File.ReadAllLines(_productPath).ToList();
             List<string> formattingProducts = products[0].Split(';').ToList();
             products.RemoveAt(0);
             foreach (string[] str in products.Select(x => x.Split(';')))
@@ -105,14 +105,14 @@ namespace Stregsystem
                 ));
             }
             _History:
-            if (!File.Exists(logPath))
+            if (!File.Exists(_logPath))
             {
-                StreamWriter fs = File.CreateText(logPath);
+                StreamWriter fs = File.CreateText(_logPath);
                 fs.WriteLine("id;date;username;amount;product_id");
                 fs.Flush();
                 return;
             }
-            List<string> transactions = File.ReadAllLines(logPath).ToList();
+            List<string> transactions = File.ReadAllLines(_logPath).ToList();
             List<string> formattingTransactions = transactions[0].Split(';').ToList();
             transactions.RemoveAt(0);
             transactions.Sort((x, y) =>
@@ -147,10 +147,10 @@ namespace Stregsystem
         ///<summary>Method for creating the <c>Transaction</c> for buying a <c>Product</c>.</summary>
         public BuyTransaction BuyProduct(User user, Product product)
         {
-            BuyTransaction _out = new BuyTransaction(user, DateTime.Now, product);
-            ExecuteTransaction(_out);
+            BuyTransaction @out = new BuyTransaction(user, DateTime.Now, product);
+            ExecuteTransaction(@out);
             OnBalanceDecrement(user);
-            return _out;
+            return @out;
         }
 
         ///<param name="user">The <c>User</c> whose account is being deposited to.</param>
@@ -169,7 +169,7 @@ namespace Stregsystem
             Transactions.Add(transaction);
             transaction.Execute();
 
-            using (StreamWriter file = File.AppendText(logPath))
+            using (StreamWriter file = File.AppendText(_logPath))
             {
                 file.WriteLine(transaction.ToString());
                 file.Flush();

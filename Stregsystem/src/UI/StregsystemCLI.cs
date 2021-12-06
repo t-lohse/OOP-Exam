@@ -1,12 +1,9 @@
 ﻿using System;
 using Stregsystem.Interfaces;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 
 namespace Stregsystem.UI
 {   
-    public class StregsystemCli : IStregsystemUI
+    public class StregsystemCli : IStregsystemUi
     {
         
         public event StregsystemEvent CommandEntered;
@@ -16,11 +13,12 @@ namespace Stregsystem.UI
         public StregsystemCli(Stregsystem sts)
         {
             _sts = sts;
-            
         }
 
         public void Start()
         {
+            if (CommandEntered.Target == null)
+                return;
             Console.Clear();
             _running = true;
             while (_running)

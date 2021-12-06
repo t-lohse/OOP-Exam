@@ -50,20 +50,20 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="90" />
+    <option name="coveragePercentColumnWidth" value="86" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="251" />
+    <option name="symbolColumnWidth" value="236" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 69% 179/571" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 40% 593/985" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
     </coverage-tree-state>
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

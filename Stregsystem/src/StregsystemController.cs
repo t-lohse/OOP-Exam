@@ -6,14 +6,14 @@ using Stregsystem.Exceptions;
 
 namespace Stregsystem
 {
-    delegate void AdminCommand(params string[] s);
+    internal delegate void AdminCommand(params string[] s);
     public class StregsystemController
     {
-        private IStregsystem _sts;
-        private IStregsystemUI _ui;
-        private Dictionary<string, AdminCommand> _adminCommands;
+        private readonly IStregsystem _sts;
+        private readonly IStregsystemUi _ui;
+        private readonly Dictionary<string, AdminCommand> _adminCommands;
         
-        public StregsystemController(IStregsystem sts, IStregsystemUI ui)
+        public StregsystemController(IStregsystem sts, IStregsystemUi ui)
         {
             _sts = sts;
             _ui = ui;

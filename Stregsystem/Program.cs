@@ -4,9 +4,6 @@ namespace Stregsystem
 {
     internal static class Program
     {
-        //TODO: Overwrite files to save new balances
-        //TODO: Add comments to controller and UI
-        //TODO: Checks if users are in the stregsystem?
         public static void Main(string[] args)
         {
             Stregsystem sts = new Stregsystem();

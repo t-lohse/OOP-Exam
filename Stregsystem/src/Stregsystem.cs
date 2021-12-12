@@ -22,8 +22,9 @@ namespace Stregsystem
         private readonly string _userPath;
         private readonly string _productPath;
 
-        // TODO: Fix to make user-specified
-        private const float Warn = 50;
+        public event UserBalanceNotification? LowBalance;
+
+        private const float WarningAmount = 50;
 
 
         ///<param name="logPath">Path for the file containing transaction-logs.</param>
@@ -138,7 +139,6 @@ namespace Stregsystem
                         user: GetUserByUsername(s[formattingTransactions.IndexOf("username")]),
                         product: GetProductById(uint.Parse(s[formattingTransactions.IndexOf("product_id")]))
                     ));
-
             }
         }
 
@@ -147,10 +147,10 @@ namespace Stregsystem
         ///<summary>Method for creating the <c>Transaction</c> for buying a <c>Product</c>.</summary>
         public BuyTransaction BuyProduct(User user, Product product)
         {
-            BuyTransaction @out = new BuyTransaction(user, DateTime.Now, product);
-            ExecuteTransaction(@out);
+            BuyTransaction _out = new BuyTransaction(user, DateTime.Now, product);
+            ExecuteTransaction(_out);
             OnBalanceDecrement(user);
-            return @out;
+            return _out;
         }
 
         ///<param name="user">The <c>User</c> whose account is being deposited to.</param>
@@ -174,15 +174,28 @@ namespace Stregsystem
                 file.WriteLine(transaction.ToString());
                 file.Flush();
             }
+
+            List<string> existing = File.ReadLines(_userPath).ToList();
+
+            int index = existing[0].Split(',').ToList().IndexOf("id");
+            
+            string line = existing.First(x
+                => x.Split(',').ToList()[index] == transaction.User.Id.ToString());
+            existing.Remove(line);
+            List<string> lines = line.Split(',').ToList();
+            lines[existing[0].Split(',').ToList().IndexOf("balance")]
+                = transaction.User.Balance.ToString();
+            existing.Add(string.Join(',', lines));
+            File.WriteAllLines(_userPath, existing);
         }
 
-        ///<param name="user">The <c>User</c> whos balance is being checked.</param>
+        ///<param name="user">The <c>User</c> whose balance is being checked.</param>
         ///<summary>Method for notifying the user when their balance is low.</summary>
         private void OnBalanceDecrement(User user)
         {
-            if (user.Balance < Warn)
+            if (user.Balance <= WarningAmount)
             {
-                // TODO: Notify
+                LowBalance.Invoke(user, (decimal)user.Balance);
             }
         }
 

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace Stregsystem.Interfaces
 {
+    public delegate void UserBalanceNotification(User user, decimal balance);
+    
     ///<summary>Interface specifying the methods needed for the Stregsystem to work.</summary>
     public interface IStregsystem 
     {
@@ -40,5 +42,9 @@ namespace Stregsystem.Interfaces
        ///<returns>The <c>User</c> whose username matches <c>username</c>.</returns>
        ///<summary>Method for getting a <c>User</c> by a username.</summary>
        User GetUserByUsername(string username); 
+       /// <summary>
+       /// Event for notifying when a <c>User</c> has a low <c>Balance</c>.
+       /// </summary>
+       event UserBalanceNotification LowBalance;
     }
 }

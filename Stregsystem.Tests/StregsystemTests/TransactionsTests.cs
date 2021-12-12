@@ -12,31 +12,16 @@ namespace Stregsystem.Tests.StregsystemTests
         [Fact]
         public void GetTransactionsFromUser()
         {
-            User u = new User("First Last", "test", "username@domain.dk", 12);
-            var sts = new Stregsystem("test_log.csv", productPath: "products_test.csv");
-            /*
-            List<Transaction> expected = new List<Transaction>()
-            {
-                new InsertCashTransaction(u, DateTime.ParseExact("2021-12-05 15:27:50",
-                    "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture), 800f),
-                new BuyTransaction(u, DateTime.ParseExact("2021-12-05 15:27:51",
-                    "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture), sts.GetProductById(4)),
-                new BuyTransaction(u, DateTime.ParseExact("2021-12-05 15:27:52",
-                    "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture), sts.GetProductById(4)),
-                new BuyTransaction(u, DateTime.ParseExact("2021-12-05 15:27:53",
-                    "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture), sts.GetProductById(4)),
-                new InsertCashTransaction(u, DateTime.ParseExact("2021-12-05 15:27:54",
-                    "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture), 800f),
-            };
-            */
+            var sts = new Stregsystem("../../../test_log.csv", productPath: "../../../products_test.csv", userPath: "../../../users.csv");
+            var u = sts.GetUserByUsername("test");
             Assert.True(CompareTransactions(new List<uint>() {5, 4, 3}, sts.GetTransactions(u, 3)));
         }
         
         [Fact]
-        public void BuyProductWithInsuficientCredit()
+        public void BuyProductWithInsufficientCredit()
         {
             User u = new User("First Last", "test", "username@domain.dk", 12);
-            var sts = new Stregsystem("test_log2.csv", productPath: "products_test.csv");
+            var sts = new Stregsystem("../../../test_log2.csv", productPath: "../../../products_test.csv", userPath: "../../../users.csv");
             Assert.Throws<InsufficientCreditsException>(() => sts.BuyProduct(u, sts.GetProductById(4)));
         }
         
@@ -44,7 +29,7 @@ namespace Stregsystem.Tests.StregsystemTests
         public void BuyProduct()
         {
             User u = new User("First Last", "test", "username@domain.dk", 12, 10000);
-            var sts = new Stregsystem("test_log2.csv", productPath: "products_test.csv");
+            var sts = new Stregsystem("../../../test_log2.csv", productPath: "../../../products_test.csv", userPath: "../../../users.csv");
             sts.BuyProduct(u, sts.GetProductById(4));
             Assert.True(u.Balance < 10000);
         }
@@ -53,7 +38,7 @@ namespace Stregsystem.Tests.StregsystemTests
         public void AddMoney()
         {
             User u = new User("First Last", "test", "username@domain.dk", 12);
-            var sts = new Stregsystem("test_log2.csv", productPath: "products_test.csv");
+            var sts = new Stregsystem(logPath: "../../../test_log2.csv", productPath: "../../../products_test.csv", userPath: "../../../users.csv");
             sts.AddCreditsToAccount(u, 100.0f);
             Assert.True(u.Balance == 100.0f);
         }

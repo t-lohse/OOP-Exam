@@ -28,7 +28,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="ReSpellerSettingsId" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected=".NET Project.Stregsystem">
     <configuration name="Stregsystem" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Stregsystem/bin/Debug/net6.0/Stregsystem.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -50,14 +50,32 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="86" />
+    <option name="coveragePercentColumnWidth" value="85" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="236" />
+    <option name="symbolColumnWidth" value="233" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 40% 593/985" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 91% 41/442" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 91% 41/442" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Stregsystem 86% 40/285" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 91% 41/442" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Stregsystem 86% 40/285" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Stregsystem 86% 40/285" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 91% 41/442" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Stregsystem 86% 40/285" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Stregsystem 86% 40/285" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Exceptions 70% 10/33" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />

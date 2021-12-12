@@ -9,21 +9,21 @@ namespace Stregsystem.Tests.StregsystemTests
         [Fact]
         public void SearchNonExistingUser()
         {
-            var sts = new Stregsystem(productPath: "products_test.csv");
+            var sts = new Stregsystem(productPath: "../../../products_test.csv", userPath: "../../../users.csv");
             Assert.Throws<InvalidUsernameException>(() => sts.GetUserByUsername("non-existing"));
         }
         
         [Fact]
         public void SearchExistingUser()
         {
-            var sts = new Stregsystem(productPath: "products_test.csv");
+            var sts = new Stregsystem(productPath: "../../../products_test.csv", userPath: "../../../users.csv");
             Assert.Equal(sts.GetUserByUsername("ndavo"), new User("Nancy Davolio", "ndavo", "ndavo@sample.stregsystem.dk", 1, 40000));
         }
         
         [Fact]
         public void SearchUsersWithNegativeMoney()
         {
-            var sts = new Stregsystem(productPath: "products_test.csv");
+            var sts = new Stregsystem(productPath: "../../../products_test.csv", userPath: "../../../users.csv");
             List<User> expected = new List<User>()
             {
                 new User("Robert King", "rking", "rking@sample.stregsystem.dk", 7, -1000),

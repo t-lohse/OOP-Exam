@@ -1,13 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {},
-    "net6.0": {}
+    "net5.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    "net5.0": [],
-    "net6.0": []
+    "net5.0": []
   },
   "packageFolders": {
     "C:\\Users\\thoma\\.nuget\\packages\\": {}
@@ -21,14 +19,12 @@
       "packagesPath": "C:\\Users\\thoma\\.nuget\\packages\\",
       "outputPath": "D:\\School\\OOP-Exam\\Stregsystem\\obj\\",
       "projectStyle": "PackageReference",
-      "crossTargeting": true,
       "configFilePaths": [
         "C:\\Users\\thoma\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0",
-        "net6.0"
+        "net5.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -37,10 +33,6 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
-        },
-        "net6.0": {
-          "targetAlias": "net6.0",
           "projectReferences": {}
         }
       },
@@ -53,25 +45,6 @@
     "frameworks": {
       "net5.0": {
         "targetAlias": "net5.0",
-        "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
-        ],
-        "assetTargetFallback": true,
-        "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
-      },
-      "net6.0": {
-        "targetAlias": "net6.0",
         "imports": [
           "net461",
           "net462",

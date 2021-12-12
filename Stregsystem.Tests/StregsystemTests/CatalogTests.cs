@@ -10,14 +10,14 @@ namespace Stregsystem.Tests.StregsystemTests
         [Fact]
         public void SearchNonExistingProduct()
         {
-            var sts = new Stregsystem(productPath: "products_test.csv");
+            var sts = new Stregsystem(productPath: "../../../products_test.csv");
             Assert.Throws<NonExistingProductException>(() => sts.GetProductById(190101));
         }
         
         [Fact]
         public void SearchExistingProduct()
         {
-            var sts = new Stregsystem(productPath: "products_test.csv");
+            var sts = new Stregsystem(productPath: "../../../products_test.csv");
             Assert.Equal(sts.GetProductById(10), new Product(10, "Cocio",1600));
         }
         
@@ -38,7 +38,7 @@ namespace Stregsystem.Tests.StregsystemTests
                 new Product(10, "Cocio",1600),
 
             };
-            var sts = new Stregsystem(productPath: "products_test.csv");
+            var sts = new Stregsystem(productPath: "../../../products_test.csv");
             
             Assert.True(CompareProductList(expected, sts.Products));
         }
@@ -60,7 +60,7 @@ namespace Stregsystem.Tests.StregsystemTests
                 new Product(10, "Cocio",1600),
 
             };
-            var sts = new Stregsystem(productPath: "products_test.csv");
+            var sts = new Stregsystem(productPath: "../../../products_test.csv");
             
             Assert.True(CompareProductList(expected, sts.ActiveProducts));
         }

@@ -106,15 +106,23 @@ namespace Stregsystem
             Stack<Product> cart = new();
             foreach (string s in list)
             {
-                if (s.Contains('*'))
+                try
                 {
-                    // Multiple of dame product
-                    var mul = s.Split('*');
-                    for (int i = int.Parse(mul[0]); i > 0; i--)
-                        cart.Push(_sts.GetProductById(uint.Parse(mul[1])));
-                    continue;
+                    if (s.Contains('*'))
+                    {
+                        // Multiple of dame product
+                        var mul = s.Split('*');
+                        for (int i = int.Parse(mul[0]); i > 0; i--)
+                            cart.Push(_sts.GetProductById(uint.Parse(mul[1])));
+                        continue;
+                    }
+                    cart.Push(_sts.GetProductById(uint.Parse(s)));
                 }
-                cart.Push(_sts.GetProductById(uint.Parse(s)));
+                catch (NonExistingProductException e)
+                {
+                    _ui.DisplayProductNotFound(e.Id.ToString());
+                    return;
+                }
             }
 
             // If insufficient funds
